@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DYALY.NET - Y2K Streetwear Portal</title>
+    <style>
+        /* Import all the existing CSS styles */
+        :root {
+            --font-size: 16px;
+            --background: #ffffff;
+            --foreground: #000000;
+            
+            /* 2000s Retro Color Variables */
+            --retro-gray-light: #c0c0c0;
+            --retro-gray-dark: #808080;
+            --retro-silver: #f0f0f0;
+            --retro-blue: #0000ff;
+            --retro-red: #ff0000;
+            --retro-green: #008000;
+            --retro-text: #000000;
+            --retro-link: #0000ee;
+            --retro-link-hover: #551a8b;
+            --retro-button-light: #dfdfdf;
+            --retro-button-dark: #808080;
+            --retro-panel: #f0f0f0;
+            
+            /* Y2K Neon Colors */
+            --neon-pink: #ff00ff;
+            --neon-cyan: #00ffff;
+            --neon-lime: #00ff00;
+            --neon-orange: #ff6600;
+            --neon-purple: #9900ff;
+            --neon-yellow: #ffff00;
+            --cyber-blue: #0066ff;
+            --cyber-purple: #6600cc;
+            --electric-pink: #ff0080;
+            --matrix-green: #00ff41;
+            --hot-pink: #ff1493;
+            --cyber-teal: #00cccc;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--retro-gray-light);
+            font-family: 'MS Sans Serif', 'Tahoma', 'Verdana', sans-serif;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .font-retro {
+            font-family: 'MS Sans Serif', 'Tahoma', 'Verdana', sans-serif;
+        }
+
+        .pixel-font {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* 3D Button Effects */
+        .retro-button {
+            background: linear-gradient(135deg, var(--retro-button-light) 0%, var(--retro-gray-light) 50%, var(--retro-button-dark) 100%);
+            border: 2px outset var(--retro-gray-light);
+            color: var(--retro-text);
+            cursor: pointer;
+            padding: 4px 8px;
+            font-size: 11px;
+            font-family: 'MS Sans Serif', sans-serif;
+        }
+
+        .retro-button:hover {
+            background: linear-gradient(135deg, var(--retro-silver) 0%, var(--retro-button-light) 50%, var(--retro-gray-light) 100%);
+        }
+
+        .retro-button:active {
+            border: 2px inset var(--retro-gray-light);
+            background: var(--retro-gray-light);
+        }
+
+        .retro-button-inset {
+            border: 2px inset var(--retro-gray-light);
+            background: var(--retro-panel);
+        }
+
+        .retro-panel {
+            background: var(--retro-panel);
+            border: 2px outset var(--retro-gray-light);
+            padding: 8px;
+        }
+
+        .retro-panel-inset {
+            background: var(--retro-silver);
+            border: 2px inset var(--retro-gray-light);
+            padding: 8px;
+        }
+
+        /* Input Fields */
+        .retro-input {
+            background: white;
+            border: 2px inset var(--retro-gray-light);
+            padding: 2px 4px;
+            font-family: 'MS Sans Serif', sans-serif;
+            font-size: 11px;
+        }
+
+        .retro-input:focus {
+            outline: 1px dotted var(--retro-text);
+            outline-offset: -3px;
+        }
+
+        /* Text Shadow for Headers */
+        .retro-text-shadow {
+            text-shadow: 1px 1px 0px var(--retro-gray-dark);
+        }
+
+        /* Pixel Border */
+        .pixel-border {
+            border: 1px solid var(--retro-text);
+            box-shadow: 
+                1px 1px 0px var(--retro-gray-dark),
+                2px 2px 0px var(--retro-gray-light);
+        }
+
+        /* Blink Animation */
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        /* Matrix-style Text */
+        .matrix-text {
+            color: var(--retro-green);
+            font-family: 'Courier New', monospace;
+            text-shadow: 0 0 5px var(--retro-green);
+        }
+
+        /* Marquee Effect */
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .marquee span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 15s linear infinite;
+        }
+
+        /* Under Construction GIF Effect */
+        .under-construction {
+            background: linear-gradient(45deg, #ff0000, #ffff00, #ff0000, #ffff00);
+            background-size: 20px 20px;
+            animation: construction 1s linear infinite;
+            color: black;
+            font-weight: bold;
+            padding: 4px 8px;
+        }
+
+        @keyframes construction {
+            0% { background-position: 0 0; }
+            100% { background-position: 20px 20px; }
+        }
+
+        /* Y2K Neon Button Variants */
+        .neon-button-pink {
+            background: linear-gradient(135deg, var(--neon-pink), var(--electric-pink));
+            border: 2px solid var(--hot-pink);
+            color: white;
+            text-shadow: 0 0 5px var(--neon-pink);
+            box-shadow: 0 0 10px var(--neon-pink);
+            padding: 4px 8px;
+            cursor: pointer;
+            font-family: 'MS Sans Serif', sans-serif;
+        }
+
+        .neon-button-cyan {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--cyber-teal));
+            border: 2px solid var(--neon-cyan);
+            color: black;
+            text-shadow: 0 0 5px var(--neon-cyan);
+            box-shadow: 0 0 10px var(--neon-cyan);
+            padding: 4px 8px;
+            cursor: pointer;
+            font-family: 'MS Sans Serif', sans-serif;
+        }
+
+        .neon-button-purple {
+            background: linear-gradient(135deg, var(--neon-purple), var(--cyber-purple));
+            border: 2px solid var(--neon-purple);
+            color: white;
+            text-shadow: 0 0 5px var(--neon-purple);
+            box-shadow: 0 0 10px var(--neon-purple);
+            padding: 4px 8px;
+            cursor: pointer;
+            font-family: 'MS Sans Serif', sans-serif;
+        }
+
+        .neon-panel {
+            background: linear-gradient(45deg, rgba(255, 0, 255, 0.1), rgba(0, 255, 255, 0.1));
+            border: 2px solid var(--neon-cyan);
+            box-shadow: 
+                0 0 20px rgba(0, 255, 255, 0.3),
+                inset 0 0 20px rgba(255, 0, 255, 0.1);
+        }
+
+        /* Glitch Effect */
+        @keyframes glitch {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(-2px); }
+            40% { transform: translateX(2px); }
+            60% { transform: translateX(-1px); }
+            80% { transform: translateX(1px); }
+            100% { transform: translateX(0); }
+        }
+
+        .glitch {
+            animation: glitch 0.3s infinite;
+        }
+
+        .glitch-text {
+            position: relative;
+            color: var(--neon-cyan);
+            text-shadow: 
+                2px 0 var(--neon-pink),
+                -2px 0 var(--neon-lime);
+        }
+
+        /* Scanlines Effect */
+        @keyframes scanlines {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+
+        .scanlines::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+            animation: scanlines 2s linear infinite;
+            pointer-events: none;
+        }
+
+        /* Pulsing Glow */
+        @keyframes pulse-glow {
+            0%, 100% { 
+                box-shadow: 0 0 5px var(--neon-pink);
+                border-color: var(--neon-pink);
+            }
+            50% { 
+                box-shadow: 0 0 20px var(--neon-pink), 0 0 30px var(--neon-pink);
+                border-color: var(--electric-pink);
+            }
+        }
+
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        /* 2D Character Styles */
+        .pixel-character {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 1;
+            color: var(--neon-lime);
+            text-shadow: 1px 1px 0 var(--retro-text);
+        }
+
+        .cyber-character {
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        /* Holographic Effect */
+        @keyframes hologram {
+            0%, 100% { 
+                background-position: 0% 50%;
+                opacity: 0.8;
+            }
+            50% { 
+                background-position: 100% 50%;
+                opacity: 1;
+            }
+        }
+
+        .holographic {
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan), var(--neon-purple), var(--neon-lime));
+            background-size: 400% 400%;
+            animation: hologram 3s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Retro Gradient Backgrounds */
+        .y2k-gradient-1 {
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple), var(--cyber-blue));
+        }
+
+        .y2k-gradient-2 {
+            background: linear-gradient(45deg, var(--neon-cyan), var(--neon-lime), var(--neon-yellow));
+        }
+
+        .y2k-gradient-3 {
+            background: linear-gradient(90deg, var(--electric-pink), var(--neon-orange), var(--hot-pink));
+        }
+
+        /* CRT Screen Effect */
+        .crt-screen {
+            background: radial-gradient(ellipse at center, 
+                rgba(0, 255, 0, 0.1) 0%, 
+                rgba(0, 255, 0, 0.05) 50%, 
+                rgba(0, 0, 0, 0.1) 100%);
+            position: relative;
+        }
+
+        .crt-screen::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 255, 0, 0.03) 2px,
+                rgba(0, 255, 0, 0.03) 4px
+            );
+            pointer-events: none;
+        }
+
+        /* Layout Utilities */
+        .flex {
+            display: flex;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .space-x-2 > * + * {
+            margin-left: 8px;
+        }
+
+        .space-x-4 > * + * {
+            margin-left: 16px;
+        }
+
+        .space-y-2 > * + * {
+            margin-top: 8px;
+        }
+
+        .space-y-3 > * + * {
+            margin-top: 12px;
+        }
+
+        .gap-2 {
+            gap: 8px;
+        }
+
+        .gap-4 {
+            gap: 16px;
+        }
+
+        .grid {
+            display: grid;
+        }
+
+        .grid-cols-1 {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+
+        .grid-cols-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .grid-cols-3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .grid-cols-4 {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        @media (min-width: 768px) {
+            .md\\:grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .md\\:grid-cols-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+            .md\\:grid-cols-4 {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+            .md\\:flex-row {
+                flex-direction: row;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .lg\\:grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .lg\\:col-span-2 {
+                grid-column: span 2 / span 2;
+            }
+        }
+
+        .p-2 { padding: 8px; }
+        .p-3 { padding: 12px; }
+        .p-4 { padding: 16px; }
+        .px-2 { padding-left: 8px; padding-right: 8px; }
+        .px-3 { padding-left: 12px; padding-right: 12px; }
+        .px-4 { padding-left: 16px; padding-right: 16px; }
+        .py-1 { padding-top: 4px; padding-bottom: 4px; }
+        .py-2 { padding-top: 8px; padding-bottom: 8px; }
+        .py-4 { padding-top: 16px; padding-bottom: 16px; }
+
+        .m-0 { margin: 0; }
+        .mb-2 { margin-bottom: 8px; }
+        .mb-3 { margin-bottom: 12px; }
+        .mb-4 { margin-bottom: 16px; }
+        .mt-1 { margin-top: 4px; }
+        .mt-2 { margin-top: 8px; }
+        .mt-3 { margin-top: 12px; }
+        .ml-auto { margin-left: auto; }
+
+        .w-full { width: 100%; }
+        .w-16 { width: 64px; }
+        .w-8 { width: 32px; }
+        .w-6 { width: 24px; }
+        .w-3 { width: 12px; }
+        .w-2 { width: 8px; }
+        .w-12 { width: 48px; }
+        .w-80 { width: 320px; }
+
+        .h-full { height: 100%; }
+        .h-2 { height: 8px; }
+        .h-8 { height: 32px; }
+        .h-3 { height: 12px; }
+        .h-12 { height: 48px; }
+        .h-24 { height: 96px; }
+        .h-32 { height: 128px; }
+        .h-40 { height: 160px; }
+
+        .text-xs { font-size: 12px; }
+        .text-sm { font-size: 14px; }
+        .text-base { font-size: 16px; }
+        .text-lg { font-size: 18px; }
+        .text-xl { font-size: 20px; }
+        .text-2xl { font-size: 24px; }
+        .text-3xl { font-size: 30px; }
+
+        .text-center { text-align: center; }
+        .text-left { text-left: left; }
+
+        .text-white { color: white; }
+
+        .bg-retro-green { background-color: var(--retro-green); }
+        .bg-retro-red { background-color: var(--retro-red); }
+        .bg-retro-blue { background-color: var(--retro-blue); }
+        .bg-retro-gray-light { background-color: var(--retro-gray-light); }
+        .bg-retro-gray-dark { background-color: var(--retro-gray-dark); }
+        .bg-white { background-color: white; }
+
+        .text-retro-text { color: var(--retro-text); }
+        .text-retro-link { color: var(--retro-link); }
+        .text-retro-link:hover { color: var(--retro-link-hover); }
+        .text-retro-blue { color: var(--retro-blue); }
+        .text-retro-green { color: var(--retro-green); }
+
+        .border-b { border-bottom: 1px solid; }
+        .border-b-2 { border-bottom: 2px solid; }
+        .border-t-2 { border-top: 2px solid; }
+        .border-retro-silver { border-color: var(--retro-silver); }
+        .border-retro-gray-dark { border-color: var(--retro-gray-dark); }
+
+        .underline { text-decoration: underline; }
+
+        .max-w-6xl { max-width: 1152px; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+
+        .relative { position: relative; }
+        .absolute { position: absolute; }
+        .fixed { position: fixed; }
+
+        .top-20 { top: 80px; }
+        .right-4 { right: 16px; }
+        .top-24 { top: 96px; }
+        .bottom-4 { bottom: 16px; }
+        .left-4 { left: 16px; }
+        .top-1 { top: 4px; }
+        .right-1 { right: 4px; }
+        .top-2 { top: 8px; }
+        .right-2 { right: 8px; }
+        .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+
+        .z-40 { z-index: 40; }
+        .z-50 { z-index: 50; }
+
+        .object-cover { object-fit: cover; }
+
+        .overflow-hidden { overflow: hidden; }
+        .overflow-y-auto { overflow-y: auto; }
+
+        .max-h-96 { max-height: 384px; }
+        .max-h-64 { max-height: 256px; }
+
+        .flex-1 { flex: 1 1 0%; }
+        .min-w-0 { min-width: 0px; }
+
+        .truncate {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .last\\:border-b-0:last-child { border-bottom: 0; }
+
+        .bg-black { background-color: black; }
+        .bg-opacity-20 { background-color: rgba(0, 0, 0, 0.2); }
+
+        .cursor-pointer { cursor: pointer; }
+
+        .block { display: block; }
+
+        .hidden { display: none; }
+
+        /* Custom Shopping Cart Styles */
+        .cart-panel {
+            position: fixed;
+            top: 96px;
+            right: 16px;
+            width: 320px;
+            max-height: 384px;
+            z-index: 50;
+            display: none;
+        }
+
+        .cart-panel.open {
+            display: block;
+        }
+
+        .cart-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 40;
+            display: none;
+        }
+
+        .cart-backdrop.open {
+            display: block;
+        }
+
+        .nav-active {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        .disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body class="font-retro crt-screen">
+    <!-- Top Border -->
+    <div style="height: 4px;" class="y2k-gradient-1"></div>
+    
+    <!-- Navigation Header -->
+    <header>
+        <!-- Browser-style Address Bar -->
+        <div class="retro-panel neon-panel p-2 border-b-2 border-retro-silver">
+            <div class="retro-panel-inset p-2">
+                <div class="flex items-center space-x-2">
+                    <div class="flex space-x-1">
+                        <button class="neon-button-cyan px-2 text-xs">File</button>
+                        <button class="retro-button px-2 text-xs">Edit</button>
+                        <button class="neon-button-pink px-2 text-xs">View</button>
+                        <button class="retro-button px-2 text-xs">Favorites</button>
+                        <button class="neon-button-purple px-2 text-xs">Tools</button>
+                        <button class="retro-button px-2 text-xs">Help</button>
+                    </div>
+                    <div class="ml-auto pixel-character cyber-character text-sm">
+                        ◉‿◉
+                    </div>
+                </div>
+            </div>
+            
+            <div class="retro-panel-inset p-2 mt-2">
+                <div class="flex items-center space-x-2">
+                    <span class="text-xs">Address:</span>
+                    <div class="flex-1 retro-input bg-white px-2 py-1">
+                        <span class="text-xs" style="font-family: monospace;" id="address-bar">http://www.dyaly.net/</span>
+                    </div>
+                    <button class="retro-button px-3 text-xs">GO</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="retro-panel p-2">
+            <div class="retro-panel-inset p-4">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <!-- Logo -->
+                    <div class="mb-4" style="margin-bottom: 0;">
+                        <h1 class="pixel-font holographic text-3xl glitch">
+                            DYALY.NET
+                        </h1>
+                        <div class="text-xs matrix-text">
+                            Your Y2K Streetwear Portal • Est. 2000
+                        </div>
+                        <div class="flex items-center space-x-2 mt-1">
+                            <div class="w-2 h-2 bg-retro-green blink"></div>
+                            <span class="text-xs cyber-character">CYBERSPACE ENABLED</span>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="setActiveSection('home')" class="nav-btn retro-button px-4 py-2 text-xs pixel-font" data-section="home" title="Alt+H">
+                            HOME
+                        </button>
+                        <button onclick="setActiveSection('list')" class="nav-btn retro-button px-4 py-2 text-xs pixel-font" data-section="list" title="Alt+L">
+                            CATALOG
+                        </button>
+                        <button onclick="setActiveSection('store')" class="nav-btn retro-button px-4 py-2 text-xs pixel-font" data-section="store" title="Alt+S">
+                            STORE
+                        </button>
+                        <button onclick="setActiveSection('wishlist')" class="nav-btn neon-button-cyan px-4 py-2 text-xs pixel-font" data-section="wishlist" title="Alt+W">
+                            WISHLIST
+                        </button>
+                        <button onclick="setActiveSection('checkout')" class="nav-btn neon-button-pink px-4 py-2 text-xs pixel-font" data-section="checkout" title="Alt+K">
+                            CHECKOUT
+                        </button>
+                        <button onclick="setActiveSection('add-card')" class="nav-btn retro-button px-4 py-2 text-xs pixel-font" data-section="add-card" title="Alt+A">
+                            SUBMIT
+                        </button>
+                        <button onclick="setActiveSection('contact')" class="nav-btn retro-button px-4 py-2 text-xs pixel-font" data-section="contact" title="Alt+C">
+                            CONTACT
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Status Bar -->
+        <div class="retro-panel-inset p-2 border-b-2 border-retro-silver">
+            <div class="flex justify-between items-center text-xs">
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-1">
+                        <div class="w-2 h-2 bg-retro-green blink"></div>
+                        <span>ONLINE</span>
+                    </div>
+                    <span>Users: 1337</span>
+                    <span class="matrix-text">CONNECTED TO MAINFRAME</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span>Loading...</span>
+                    <div class="w-16 h-2 retro-panel-inset">
+                        <div class="w-full h-full bg-retro-blue"></div>
+                    </div>
+                    <span>100%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Marquee News Ticker -->
+        <div class="y2k-gradient-1 text-white py-1">
+            <div class="marquee">
+                <span class="text-xs pixel-font glitch-text">
+                    ★ NEW ARRIVALS: Holographic baggy cargo pants now in stock! ★ 
+                    FREE SHIPPING on orders over $75 ★ 
+                    Join our ICQ chat room: 123456789 ★ 
+                    Check out our Y2K mixtape downloads ★
+                    ▲ CYBER SALE: 30% off all neon accessories ▲
+                    🛒 CART SYNC: Real-time inventory updates ★
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="scanlines">
+        <!-- Home Section -->
+        <div id="section-home" class="section-content p-4 max-w-6xl mx-auto">
+            <!-- Welcome Panel -->
+            <div class="retro-panel neon-panel mb-4">
+                <div class="retro-button-inset p-2 mb-2">
+                    <div class="flex items-center space-x-3">
+                        <span class="pixel-character cyber-character text-2xl">◉‿◉</span>
+                        <h1 class="pixel-font holographic">WELCOME TO DYALY.NET</h1>
+                        <span class="pixel-character cyber-character text-2xl">◉‿◉</span>
+                    </div>
+                </div>
+                <div class="retro-panel-inset p-4">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                        <div>
+                            <h2 class="pixel-font mb-3 glitch-text">YOUR Y2K STREETWEAR HEADQUARTERS</h2>
+                            <p class="text-sm mb-4">
+                                Step into the future of baggy fashion! Dyaly.net is your premier destination 
+                                for authentic Y2K streetwear, oversized fits, and cyber-punk accessories.
+                            </p>
+                            <div class="under-construction p-2 mb-4 text-center">
+                                <span class="pixel-font text-xs">MAINFRAME ACCESS GRANTED - USER LEVEL: ELITE</span>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-3 h-3 bg-retro-green"></div>
+                                    <span class="text-xs">Authentic Y2K Designs</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-3 h-3 bg-retro-green"></div>
+                                    <span class="text-xs">Baggy Fits Only</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-3 h-3 bg-retro-green"></div>
+                                    <span class="text-xs">Cyber-Punk Accessories</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="retro-panel-inset p-4">
+                            <img src="https://images.unsplash.com/photo-1614714053570-6c6b6aa54a6d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxZMkslMjBiYWdneSUyMHN0cmVldHdlYXIlMjBmYXNoaW9ufGVufDF8fHx8MTc1OTc4MTMxN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                                alt="Y2K Fashion"
+                                class="w-full h-40 object-cover pixel-border">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                <div class="retro-panel">
+                    <div class="retro-panel-inset p-3 text-center">
+                        <div class="text-xs pixel-font text-white px-2 py-1 mb-2 neon-button-cyan">
+                            ITEMS IN STOCK
+                        </div>
+                        <div class="pixel-font retro-text-shadow">1,337</div>
+                    </div>
+                </div>
+                <div class="retro-panel">
+                    <div class="retro-panel-inset p-3 text-center">
+                        <div class="text-xs pixel-font text-white px-2 py-1 mb-2 neon-button-purple">
+                            HAPPY CUSTOMERS
+                        </div>
+                        <div class="pixel-font retro-text-shadow">2,001</div>
+                    </div>
+                </div>
+                <div class="retro-panel">
+                    <div class="retro-panel-inset p-3 text-center">
+                        <div class="text-xs pixel-font text-white px-2 py-1 mb-2 neon-button-pink">
+                            STYLES AVAILABLE
+                        </div>
+                        <div class="pixel-font retro-text-shadow">420</div>
+                    </div>
+                </div>
+                <div class="retro-panel">
+                    <div class="retro-panel-inset p-3 text-center">
+                        <div class="text-xs pixel-font text-white px-2 py-1 mb-2 y2k-gradient-1">
+                            YEARS ONLINE
+                        </div>
+                        <div class="pixel-font retro-text-shadow">24</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Section -->
+            <div class="retro-panel mb-4">
+                <div class="retro-button-inset p-2 mb-2">
+                    <h2 class="pixel-font">FEATURED COLLECTIONS</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
+                    <div class="retro-panel-inset p-4">
+                        <div class="relative mb-3">
+                            <img src="https://images.unsplash.com/photo-1758505805301-77805195fdb9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYWdneSUyMGplYW5zJTIwdXJiYW4lMjBzdHlsZXxlbnwxfHx8fDE3NTk3ODEzMjN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                                alt="Baggy Jeans"
+                                class="w-full h-32 object-cover pixel-border">
+                            <div class="absolute top-2 right-2 px-2 py-1 text-xs pixel-font bg-retro-red text-white blink">
+                                HOT!
+                            </div>
+                        </div>
+                        <h3 class="pixel-font text-sm mb-2">BAGGY JEANS</h3>
+                        <p class="text-xs mb-3">Ultra-wide leg denim for that authentic Y2K look</p>
+                        <button class="retro-button w-full text-xs">VIEW COLLECTION</button>
+                    </div>
+
+                    <div class="retro-panel-inset p-4">
+                        <div class="relative mb-3">
+                            <img src="https://images.unsplash.com/photo-1727291332532-91acffaba157?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvdmVyc2l6ZWQlMjBZMkslMjBjbG90aGluZyUyMGN5YmVyfGVufDF8fHx8MTc1OTc4MTMyMHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                                alt="Oversized Tops"
+                                class="w-full h-32 object-cover pixel-border">
+                            <div class="absolute top-2 right-2 px-2 py-1 text-xs pixel-font bg-retro-green text-white blink">
+                                NEW
+                            </div>
+                        </div>
+                        <h3 class="pixel-font text-sm mb-2">OVERSIZED TOPS</h3>
+                        <p class="text-xs mb-3">Hoodies, tees, and crews in XXL+ sizes</p>
+                        <button class="retro-button w-full text-xs">VIEW COLLECTION</button>
+                    </div>
+
+                    <div class="retro-panel-inset p-4">
+                        <div class="relative mb-3">
+                            <img src="https://images.unsplash.com/photo-1669479412055-103edfb64cc4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxZMkslMjBhZXN0aGV0aWMlMjBuZW9uJTIwZ3JhZGllbnR8ZW58MXx8fHwxNzU5NzgxMzI1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                                alt="Cyber Accessories"
+                                class="w-full h-32 object-cover pixel-border">
+                            <div class="absolute top-2 right-2 px-2 py-1 text-xs pixel-font bg-retro-blue text-white blink">
+                                RARE
+                            </div>
+                        </div>
+                        <h3 class="pixel-font text-sm mb-2">CYBER ACCESSORIES</h3>
+                        <p class="text-xs mb-3">Chain wallets, platform shoes, and tech wear</p>
+                        <button class="retro-button w-full text-xs">VIEW COLLECTION</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News Section -->
+            <div class="retro-panel">
+                <div class="retro-button-inset p-2 mb-2">
+                    <h2 class="pixel-font">LATEST NEWS & UPDATES</h2>
+                </div>
+                <div class="retro-panel-inset p-4">
+                    <div class="space-y-3">
+                        <div class="border-b border-retro-gray-dark pb-3">
+                            <div class="flex items-center space-x-2 mb-1">
+                                <span class="text-xs pixel-font text-retro-blue">10/06/24</span>
+                                <div class="w-2 h-2 bg-retro-green blink"></div>
+                            </div>
+                            <h4 class="text-sm pixel-font mb-1">NEW SHIPMENT: Ultra-wide cargo pants have arrived!</h4>
+                            <p class="text-xs text-retro-text">Check out our latest drop of authentic Y2K cargo pants with 50+ pockets.</p>
+                        </div>
+                        <div class="border-b border-retro-gray-dark pb-3">
+                            <div class="flex items-center space-x-2 mb-1">
+                                <span class="text-xs pixel-font text-retro-blue">10/05/24</span>
+                                <div class="w-2 h-2 bg-retro-green blink"></div>
+                            </div>
+                            <h4 class="text-sm pixel-font mb-1">SALE ALERT: 30% off all platform shoes this weekend</h4>
+                            <p class="text-xs text-retro-text">Get your chunky sneakers and platform boots at discount prices.</p>
+                        </div>
+                        <div class="pb-3 last:border-b-0">
+                            <div class="flex items-center space-x-2 mb-1">
+                                <span class="text-xs pixel-font text-retro-blue">10/04/24</span>
+                                <div class="w-2 h-2 bg-retro-green blink"></div>
+                            </div>
+                            <h4 class="text-sm pixel-font mb-1">COMMUNITY: Join our new IRC channel #dyaly on EFNet</h4>
+                            <p class="text-xs text-retro-text">Chat with other Y2K fashion enthusiasts and share your fits!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Store Section -->
+        <div id="section-store" class="section-content hidden p-4 max-w-6xl mx-auto">
+            <!-- Page Header -->
+            <div class="retro-panel mb-4">
+                <div class="retro-button-inset p-2 mb-2">
+                    <h1 class="pixel-font retro-text-shadow">DYALY STORE</h1>
+                </div>
+                <div class="retro-panel-inset p-4">
+                    <p class="text-sm mb-4">
+                        Welcome to our official store! Browse collections, check out featured items, and join our community.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                <!-- Main Store Content -->
+                <div class="lg:col-span-2 space-y-4">
+                    <!-- Featured Collections with Add to Cart -->
+                    <div class="retro-panel">
+                        <div class="retro-button-inset p-2 mb-2">
+                            <h2 class="pixel-font">FEATURED PRODUCTS</h2>
+                        </div>
+                        <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4" id="products-grid">
+                            <!-- Products will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Special Offers -->
+                    <div class="retro-panel">
+                        <div class="retro-button-inset p-2 mb-2">
+                            <h2 class="pixel-font">SPECIAL OFFERS</h2>
+                        </div>
+                        <div class="p-4">
+                            <div class="under-construction p-4 mb-4">
+                                <div class="text-center pixel-font">
+                                    🚧 FLASH SALE IN PROGRESS 🚧
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="retro-panel-inset p-3">
+                                    <h3 class="pixel-font text-sm mb-2">BUNDLE DEAL</h3>
+                                    <p class="text-xs mb-3">Buy any baggy jeans + oversized hoodie and save 25%!</p>
+                                    <button class="retro-button w-full text-xs">VIEW BUNDLES</button>
+                                </div>
+                                <div class="retro-panel-inset p-3">
+                                    <h3 class="pixel-font text-sm mb-2">LOYALTY PROGRAM</h3>
+                                    <p class="text-xs mb-3">Join the Y2K Club and earn points on every purchase!</p>
+                                    <button class="retro-button w-full text-xs">SIGN UP</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="space-y-4">
+                    <!-- User Stats -->
+                    <div class="retro-panel">
+                        <div class="retro-button-inset p-2 mb-2">
+                            <h3 class="pixel-font">USER PROFILE</h3>
+                        </div>
+                        <div class="retro-panel-inset p-3">
+                            <div class="text-xs space-y-2">
+                                <div class="flex justify-between">
+                                    <span>Status:</span>
+                                    <span class="text-retro-green">GUEST</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Level:</span>
+                                    <span>1</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Style Points:</span>
+                                    <span>0</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Orders:</span>
+                                    <span>0</span>
+                                </div>
+                                <button class="retro-button w-full text-xs mt-3">LOGIN / REGISTER</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="retro-panel">
+                        <div class="retro-button-inset p-2 mb-2">
+                            <h3 class="pixel-font">QUICK LINKS</h3>
+                        </div>
+                        <div class="retro-panel-inset p-3">
+                            <div class="space-y-2">
+                                <button class="block w-full text-left text-xs text-retro-link underline">Size Guide</button>
+                                <button class="block w-full text-left text-xs text-retro-link underline">Shipping Info</button>
+                                <button class="block w-full text-left text-xs text-retro-link underline">Return Policy</button>
+                                <button class="block w-full text-left text-xs text-retro-link underline">Care Instructions</button>
+                                <button class="block w-full text-left text-xs text-retro-link underline">Style Guide</button>
+                                <button class="block w-full text-left text-xs text-retro-link underline">FAQ</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Community -->
+                    <div class="retro-panel">
+                        <div class="retro-button-inset p-2 mb-2">
+                            <h3 class="pixel-font">COMMUNITY</h3>
+                        </div>
+                        <div class="retro-panel-inset p-3">
+                            <div class="text-xs space-y-2">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-2 h-2 bg-retro-green blink"></div>
+                                    <span>42 users online</span>
+                                </div>
+                                <div>Latest: CyberKid2000 bought platform shoes</div>
+                                <div>Forum: 1,337 posts today</div>
+                                <button class="retro-button w-full text-xs mt-3">JOIN CHAT</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- List/Catalog Section -->
+        <div id="section-list" class="section-content hidden p-4 max-w-6xl mx-auto">
+            <div class="retro-panel mb-4">
+                <div class="retro-button-inset p-2 mb-2">
+                    <h1 class="pixel-font retro-text-shadow">PRODUCT CATALOG</h1>
+                </div>
+                <div class="retro-panel-inset p-4">
+                    <p class="text-sm mb-4">
+                        Browse our complete collection of Y2K streetwear and accessories.
+                    </p>
+                    <div class="under-construction p-2 text-center">
+                        <span class="pixel-font text-xs">🚧 DATABASE SYNCING WITH MAINFRAME 🚧</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wishlist Section -->
+        <div id="section-wishlist" class="section-content hidden p-4 max-w-6xl mx-auto">
+            <div class="retro-panel mb-4">
+                <div class="retro-button-inset p-2 mb-2">
+                    <h1 class="pixel-font retro-text-shadow">WISHLIST</h1>
+                </div>
+                <div class="retro-panel-inset p-4" id="wishlist-content">
+                    <div class="text-center py-4">
+                        <div class="pixel-character text-2xl mb-2">💙</div>
+                        <p class="text-sm text-retro-text">Your wishlist is empty</p>
+                        <p class="text-xs text-retro-text mt-1">Add some Y2K gear to your wishlist!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Checkout Section -->
+        <div id="section-checkout" class="section-content hidden p-4 max-w-6xl mx-auto">
+            <div class="retro-panel mb-4">
+                <div class="retro-button-inset p-2 mb-2">
+                    <h1 class="pixel-font retro-text-shadow">CHECKOUT</h1>
+                </div>
+                <div class="retro-panel-inset p-4">
+                    <div id="checkout-content">
+                        <div class="text-center py-4">
+                            <div class="pixel-character text-2xl mb-2">🛒</div>
+                            <p class="text-sm text-retro-text">Your cart is empty</p>
+                            <p class="text-xs text-retro-text mt-1">Add some items to checkout!</p>
+                            <button onclick="setActiveSection('store')" class="retro-button mt-3 text-xs">
+                                BROWSE STORE
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Card Section -->
+        <div id="section-add-card" class="section-content hidden p-4 max-w-6xl mx-auto">
+            <div class="retro-panel mb-4">
+                <div class="retro-button-inset p-2 mb-2">
+                    <h1 class="pixel-font retro-text-shadow">SUBMIT CONTENT</h1>
+                </div>
+                <div class="retro-panel-inset p-4">
+                    <p class="text-sm mb-4">
+                        Submit your Y2K fits, reviews, or suggestions to our community!
+                    </p>
+                    <div class="under-construction p-2 mb-4 text-center">
+                        <span class="pixel-font text-xs">🚧 FORM SYSTEM UNDER CONSTRUCTION 🚧</span>
+                    </div>
+                    <form class="space-y-3">
+                        <div>
+                            <label class="text-xs pixel-font mb-1 block">USERNAME:</label>
+                            <input type="text" class="retro-input w-full" placeholder="Enter your handle">
+                        </div>
+                        <div>
+                            <label class="text-xs pixel-font mb-1 block">EMAIL:</label>
+                            <input type="email" class="retro-input w-full" placeholder="your@email.com">
+                        </div>
+                        <div>
+                            <label class="text-xs pixel-font mb-1 block">MESSAGE:</label>
+                            <textarea class="retro-input w-full" rows="4" placeholder="Share your Y2K style..."></textarea>
+                        </div>
+                        <button type="submit" class="neon-button-purple px-4 py-2 text-xs pixel-font">
+                            SUBMIT TO MAINFRAME
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div id="section-contact" class="section-content hidden p-4 max-w-6xl mx-auto">
+            <div class="retro-panel mb-4">
+                <div class="retro-button-inset p-2 mb-2">
+                    <h1 class="pixel-font retro-text-shadow">CONTACT US</h1>
+                </div>
+                <div class="retro-panel-inset p-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h2 class="pixel-font mb-3">GET IN TOUCH</h2>
+                            <div class="space-y-2 text-xs">
+                                <div>📧 Email: admin@dyaly.net</div>
+                                <div>📟 ICQ: 123456789</div>
+                                <div>💬 MSN: dyaly@hotmail.com</div>
+                                <div>🌐 IRC: #dyaly on EFNet</div>
+                                <div>📞 Phone: 1-800-Y2K-GEAR</div>
+                            </div>
+                            <div class="mt-4">
+                                <h3 class="pixel-font mb-2">BUSINESS HOURS</h3>
+                                <div class="text-xs space-y-1">
+                                    <div>Mon-Fri: 9AM-9PM EST</div>
+                                    <div>Saturday: 10AM-8PM EST</div>
+                                    <div>Sunday: 12PM-6PM EST</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h2 class="pixel-font mb-3">SEND MESSAGE</h2>
+                            <form class="space-y-3">
+                                <div>
+                                    <label class="text-xs pixel-font mb-1 block">NAME:</label>
+                                    <input type="text" class="retro-input w-full">
+                                </div>
+                                <div>
+                                    <label class="text-xs pixel-font mb-1 block">EMAIL:</label>
+                                    <input type="email" class="retro-input w-full">
+                                </div>
+                                <div>
+                                    <label class="text-xs pixel-font mb-1 block">SUBJECT:</label>
+                                    <input type="text" class="retro-input w-full">
+                                </div>
+                                <div>
+                                    <label class="text-xs pixel-font mb-1 block">MESSAGE:</label>
+                                    <textarea class="retro-input w-full" rows="4"></textarea>
+                                </div>
+                                <button type="submit" class="neon-button-cyan px-4 py-2 text-xs pixel-font w-full">
+                                    SEND MESSAGE
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating Cart Button -->
+    <button id="cart-toggle" class="fixed top-20 right-4 z-50 neon-button-purple px-4 py-2 pixel-font pulse-glow">
+        🛒 CART (<span id="cart-count">0</span>)
+    </button>
+
+    <!-- Shopping Cart Panel -->
+    <div id="cart-panel" class="cart-panel retro-panel neon-panel">
+        <div class="retro-button-inset p-2 mb-2">
+            <div class="flex justify-between items-center">
+                <h3 class="pixel-font">SHOPPING CART</h3>
+                <button id="cart-close" class="retro-button text-xs px-2">✕</button>
+            </div>
+        </div>
+        
+        <div class="retro-panel-inset p-3 max-h-64 overflow-y-auto" id="cart-items">
+            <div class="text-center py-4" id="empty-cart">
+                <div class="pixel-character text-2xl mb-2">🛒</div>
+                <p class="text-sm text-retro-text">Your cart is empty</p>
+                <p class="text-xs text-retro-text mt-1">Add some Y2K gear!</p>
+            </div>
+        </div>
+
+        <div id="cart-footer" class="retro-panel-inset p-3 mt-2 hidden">
+            <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                    <span>Subtotal:</span>
+                    <span class="pixel-font text-retro-blue">$<span id="cart-total">0.00</span></span>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <button id="clear-cart" class="retro-button text-xs py-1">CLEAR CART</button>
+                    <button id="checkout-btn" class="neon-button-purple text-xs py-1 pixel-font">CHECKOUT</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Character Mascot -->
+        <div class="retro-panel-inset p-2 mt-2 text-center">
+            <div class="pixel-character cyber-character text-sm">◉‿◉</div>
+            <div class="text-xs matrix-text mt-1" id="cart-message">
+                Ready to shop some Y2K gear!
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Backdrop -->
+    <div id="cart-backdrop" class="cart-backdrop"></div>
+
+    <!-- Visitor Counter -->
+    <div class="fixed bottom-4 left-4 retro-panel p-3">
+        <div class="retro-button-inset p-2 text-center">
+            <div class="text-xs pixel-font mb-1">VISITOR COUNTER</div>
+            <div class="pixel-font retro-text-shadow text-retro-blue">001337</div>
+            <div class="text-xs">You are visitor #1337</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-retro-gray-dark border-t-2 border-retro-silver py-4 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="retro-panel p-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Brand -->
+                    <div>
+                        <div class="retro-button-inset p-2 mb-3">
+                            <h3 class="retro-text-shadow pixel-font">DYALY.NET</h3>
+                        </div>
+                        <p class="text-sm text-retro-text mb-3">
+                            Your #1 destination for baggy streetwear and Y2K fashion. Est. 2000.
+                        </p>
+                        <div class="flex space-x-2">
+                            <button class="retro-button px-3 py-1 text-xs">AOL</button>
+                            <button class="retro-button px-3 py-1 text-xs">ICQ</button>
+                            <button class="retro-button px-3 py-1 text-xs">MSN</button>
+                        </div>
+                    </div>
+
+                    <!-- Links -->
+                    <div>
+                        <div class="retro-button-inset p-2 mb-3">
+                            <h4 class="pixel-font">SITE MAP</h4>
+                        </div>
+                        <ul class="space-y-1 text-sm">
+                            <li><button class="text-retro-link underline" onclick="setActiveSection('home')">Home</button></li>
+                            <li><button class="text-retro-link underline" onclick="setActiveSection('list')">Catalog</button></li>
+                            <li><button class="text-retro-link underline" onclick="setActiveSection('add-card')">Guestbook</button></li>
+                            <li><button class="text-retro-link underline">Links</button></li>
+                            <li><button class="text-retro-link underline">Webring</button></li>
+                        </ul>
+                    </div>
+
+                    <!-- Stats -->
+                    <div>
+                        <div class="retro-button-inset p-2 mb-3">
+                            <h4 class="pixel-font">SITE STATS</h4>
+                        </div>
+                        <div class="text-sm space-y-1">
+                            <div>Visitors: 001337</div>
+                            <div>Last Updated: 10/06/24</div>
+                            <div>Best viewed in: 1024x768</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t-2 border-retro-silver mt-4 pt-4 text-center text-xs text-retro-text">
+                    © 2000-2024 DYALY.NET | All rights reserved | Made with ♥ in HTML
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // App State
+        let currentSection = 'home';
+        let cart = {
+            items: [],
+            total: 0,
+            itemCount: 0
+        };
+        let wishlist = [];
+
+        // Sample Products Data
+        const products = [
+            {
+                id: 1,
+                name: 'Baggy Cargo Pants',
+                price: 89.99,
+                image: 'https://images.unsplash.com/photo-1758505805301-77805195fdb9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYWdneSUyMGplYW5zJTIwdXJiYW4lMjBzdHlsZXxlbnwxfHx8fDE3NTk3ODEzMjN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+                rarity: 'RARE',
+                sizes: ['S', 'M', 'L', 'XL', 'XXL']
+            },
+            {
+                id: 2,
+                name: 'Oversized Hoodie',
+                price: 69.99,
+                image: 'https://images.unsplash.com/photo-1727291332532-91acffaba157?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvdmVyc2l6ZWQlMjBZMkslMjBjbG90aGluZyUyMGN5YmVyfGVufDF8fHx8MTc1OTc4MTMyMHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+                rarity: 'COMMON',
+                sizes: ['M', 'L', 'XL', 'XXL']
+            },
+            {
+                id: 3,
+                name: 'Cyber Platform Shoes',
+                price: 149.99,
+                image: 'https://images.unsplash.com/photo-1669479412055-103edfb64cc4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxZMkslMjBhZXN0aGV0aWMlMjBuZW9uJTIwZ3JhZGllbnR8ZW58MXx8fHwxNzU5NzgxMzI1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+                rarity: 'LEGENDARY',
+                sizes: ['7', '8', '9', '10', '11', '12']
+            },
+            {
+                id: 4,
+                name: 'Holographic Chain Wallet',
+                price: 39.99,
+                image: 'https://images.unsplash.com/photo-1614714053570-6c6b6aa54a6d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxZMkslMjBiYWdneSUyMHN0cmVldHdlYXIlMjBmYXNoaW9ufGVufDF8fHx8MTc1OTc4MTMxN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+                rarity: 'EPIC',
+                sizes: ['One Size']
+            }
+        ];
+
+        // Navigation Functions
+        function setActiveSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section-content').forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Show the selected section
+            document.getElementById(`section-${sectionId}`).classList.remove('hidden');
+
+            // Update navigation buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('nav-active');
+                if (btn.dataset.section === sectionId) {
+                    btn.classList.add('nav-active');
+                }
+            });
+
+            // Update address bar
+            const addressBar = document.getElementById('address-bar');
+            addressBar.textContent = `http://www.dyaly.net/${sectionId === 'home' ? '' : sectionId}`;
+
+            currentSection = sectionId;
+
+            // Load section-specific content
+            if (sectionId === 'store') {
+                loadProducts();
+            } else if (sectionId === 'checkout') {
+                loadCheckout();
+            }
+        }
+
+        // Product Functions
+        function loadProducts() {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'retro-panel-inset p-3';
+                
+                const rarityColor = {
+                    'COMMON': 'bg-retro-gray-dark',
+                    'RARE': 'bg-retro-blue',
+                    'EPIC': 'bg-retro-green',
+                    'LEGENDARY': 'bg-retro-red'
+                };
+
+                productCard.innerHTML = `
+                    <div class="relative mb-2">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-24 object-cover pixel-border">
+                        <div class="absolute top-1 right-1 px-1 py-0.5 text-xs pixel-font text-white ${rarityColor[product.rarity]} blink">
+                            ${product.rarity}
+                        </div>
+                    </div>
+                    <h3 class="pixel-font text-xs mb-1">${product.name}</h3>
+                    <p class="text-xs text-retro-blue mb-2">$${product.price.toFixed(2)}</p>
+                    <div class="mb-2">
+                        <label class="text-xs pixel-font mb-1 block">SIZE:</label>
+                        <select class="retro-input text-xs w-full" id="size-${product.id}">
+                            ${product.sizes.map(size => `<option value="${size}">${size}</option>`).join('')}
+                        </select>
+                    </div>
+                    <div class="grid grid-cols-2 gap-1">
+                        <button onclick="addToCart(${product.id})" class="retro-button text-xs py-1">ADD TO CART</button>
+                        <button onclick="addToWishlist(${product.id})" class="neon-button-cyan text-xs py-1">♥ WISH</button>
+                    </div>
+                `;
+                
+                grid.appendChild(productCard);
+            });
+        }
+
+        // Cart Functions
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const sizeSelect = document.getElementById(`size-${productId}`);
+            const selectedSize = sizeSelect.value;
+
+            if (product) {
+                const existingItem = cart.items.find(item => 
+                    item.id === productId && item.size === selectedSize
+                );
+
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.items.push({
+                        id: product.id,
+                        name: product.name,
+                        price: product.price,
+                        size: selectedSize,
+                        image: product.image,
+                        rarity: product.rarity,
+                        quantity: 1
+                    });
+                }
+
+                updateCartUI();
+                showNotification(`Added ${product.name} (Size: ${selectedSize}) to cart!`);
+            }
+        }
+
+        function removeFromCart(productId) {
+            cart.items = cart.items.filter(item => item.id !== productId);
+            updateCartUI();
+            showNotification('Item removed from cart');
+        }
+
+        function updateQuantity(productId, newQuantity) {
+            const item = cart.items.find(item => item.id === productId);
+            if (item && newQuantity > 0) {
+                item.quantity = newQuantity;
+                updateCartUI();
+            } else if (item && newQuantity <= 0) {
+                removeFromCart(productId);
+            }
+        }
+
+        function clearCart() {
+            cart.items = [];
+            updateCartUI();
+            showNotification('Cart cleared');
+        }
+
+        function updateCartUI() {
+            // Calculate totals
+            cart.total = cart.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            cart.itemCount = cart.items.reduce((sum, item) => sum + item.quantity, 0);
+
+            // Update cart count
+            document.getElementById('cart-count').textContent = cart.itemCount;
+            document.getElementById('cart-total').textContent = cart.total.toFixed(2);
+
+            // Update cart button glow
+            const cartBtn = document.getElementById('cart-toggle');
+            if (cart.itemCount > 0) {
+                cartBtn.classList.add('pulse-glow');
+            } else {
+                cartBtn.classList.remove('pulse-glow');
+            }
+
+            // Update cart contents
+            const cartItems = document.getElementById('cart-items');
+            const emptyCart = document.getElementById('empty-cart');
+            const cartFooter = document.getElementById('cart-footer');
+            const cartMessage = document.getElementById('cart-message');
+
+            if (cart.items.length === 0) {
+                emptyCart.style.display = 'block';
+                cartFooter.classList.add('hidden');
+                cartMessage.textContent = 'Ready to shop some Y2K gear!';
+                cartItems.querySelectorAll('.cart-item').forEach(item => item.remove());
+            } else {
+                emptyCart.style.display = 'none';
+                cartFooter.classList.remove('hidden');
+                cartMessage.textContent = `${cart.itemCount} items in your cyber cart!`;
+
+                // Clear existing items
+                cartItems.querySelectorAll('.cart-item').forEach(item => item.remove());
+
+                // Add current items
+                cart.items.forEach((item, index) => {
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item retro-button-inset p-2 space-y-3';
+                    cartItem.innerHTML = `
+                        <div class="flex items-start space-x-2">
+                            <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-cover pixel-border">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="pixel-font text-xs mb-1 truncate">${item.name}</h4>
+                                <div class="text-xs text-retro-text mb-1">Size: ${item.size}</div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-1">
+                                        <button onclick="updateQuantity(${item.id}, ${item.quantity - 1})" 
+                                                class="retro-button text-xs px-1 ${item.quantity <= 1 ? 'disabled' : ''}"
+                                                ${item.quantity <= 1 ? 'disabled' : ''}>-</button>
+                                        <span class="text-xs w-6 text-center">${item.quantity}</span>
+                                        <button onclick="updateQuantity(${item.id}, ${item.quantity + 1})" 
+                                                class="retro-button text-xs px-1">+</button>
+                                    </div>
+                                    <span class="text-xs text-retro-blue">$${(item.price * item.quantity).toFixed(2)}</span>
+                                </div>
+                            </div>
+                            <button onclick="removeFromCart(${item.id})" class="retro-button text-xs px-1" title="Remove item">🗑️</button>
+                        </div>
+                    `;
+                    cartItems.appendChild(cartItem);
+                });
+            }
+        }
+
+        // Wishlist Functions
+        function addToWishlist(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product && !wishlist.find(item => item.id === productId)) {
+                wishlist.push(product);
+                updateWishlistUI();
+                showNotification(`Added ${product.name} to wishlist!`);
+            }
+        }
+
+        function removeFromWishlist(productId) {
+            wishlist = wishlist.filter(item => item.id !== productId);
+            updateWishlistUI();
+            showNotification('Item removed from wishlist');
+        }
+
+        function updateWishlistUI() {
+            const wishlistContent = document.getElementById('wishlist-content');
+            
+            if (wishlist.length === 0) {
+                wishlistContent.innerHTML = `
+                    <div class="text-center py-4">
+                        <div class="pixel-character text-2xl mb-2">💙</div>
+                        <p class="text-sm text-retro-text">Your wishlist is empty</p>
+                        <p class="text-xs text-retro-text mt-1">Add some Y2K gear to your wishlist!</p>
+                    </div>
+                `;
+            } else {
+                wishlistContent.innerHTML = `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        ${wishlist.map(item => `
+                            <div class="retro-panel-inset p-3">
+                                <img src="${item.image}" alt="${item.name}" class="w-full h-24 object-cover pixel-border mb-2">
+                                <h3 class="pixel-font text-xs mb-1">${item.name}</h3>
+                                <p class="text-xs text-retro-blue mb-2">$${item.price.toFixed(2)}</p>
+                                <div class="grid grid-cols-2 gap-1">
+                                    <button onclick="addToCart(${item.id})" class="retro-button text-xs py-1">ADD TO CART</button>
+                                    <button onclick="removeFromWishlist(${item.id})" class="neon-button-pink text-xs py-1">REMOVE</button>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+        }
+
+        // Checkout Functions
+        function loadCheckout() {
+            const checkoutContent = document.getElementById('checkout-content');
+            
+            if (cart.items.length === 0) {
+                checkoutContent.innerHTML = `
+                    <div class="text-center py-4">
+                        <div class="pixel-character text-2xl mb-2">🛒</div>
+                        <p class="text-sm text-retro-text">Your cart is empty</p>
+                        <p class="text-xs text-retro-text mt-1">Add some items to checkout!</p>
+                        <button onclick="setActiveSection('store')" class="retro-button mt-3 text-xs">BROWSE STORE</button>
+                    </div>
+                `;
+            } else {
+                checkoutContent.innerHTML = `
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                        <div>
+                            <h2 class="pixel-font mb-3">ORDER SUMMARY</h2>
+                            <div class="retro-panel-inset p-3 mb-4">
+                                ${cart.items.map(item => `
+                                    <div class="flex justify-between items-center mb-2 pb-2 border-b border-retro-gray-dark last:border-b-0">
+                                        <div>
+                                            <div class="text-xs pixel-font">${item.name}</div>
+                                            <div class="text-xs text-retro-text">Size: ${item.size} × ${item.quantity}</div>
+                                        </div>
+                                        <div class="text-xs text-retro-blue">$${(item.price * item.quantity).toFixed(2)}</div>
+                                    </div>
+                                `).join('')}
+                                <div class="flex justify-between items-center pt-2 border-t-2 border-retro-gray-dark">
+                                    <span class="pixel-font">TOTAL:</span>
+                                    <span class="pixel-font text-retro-blue">$${cart.total.toFixed(2)}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h2 class="pixel-font mb-3">PAYMENT INFO</h2>
+                            <div class="under-construction p-2 mb-4 text-center">
+                                <span class="pixel-font text-xs">🚧 SECURE PAYMENT PORTAL 🚧</span>
+                            </div>
+                            <form class="space-y-3">
+                                <div>
+                                    <label class="text-xs pixel-font mb-1 block">CARD NUMBER:</label>
+                                    <input type="text" class="retro-input w-full" placeholder="1234 5678 9012 3456">
+                                </div>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div>
+                                        <label class="text-xs pixel-font mb-1 block">EXPIRY:</label>
+                                        <input type="text" class="retro-input w-full" placeholder="MM/YY">
+                                    </div>
+                                    <div>
+                                        <label class="text-xs pixel-font mb-1 block">CVV:</label>
+                                        <input type="text" class="retro-input w-full" placeholder="123">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="text-xs pixel-font mb-1 block">NAME ON CARD:</label>
+                                    <input type="text" class="retro-input w-full" placeholder="Your Name">
+                                </div>
+                                <button type="submit" onclick="processCheckout(event)" class="neon-button-purple px-4 py-2 text-xs pixel-font w-full">
+                                    COMPLETE ORDER - $${cart.total.toFixed(2)}
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function processCheckout(event) {
+            event.preventDefault();
+            showNotification('Order processed! Check your email for confirmation.');
+            clearCart();
+            setActiveSection('home');
+        }
+
+        // Cart UI Functions
+        function toggleCart() {
+            const cartPanel = document.getElementById('cart-panel');
+            const cartBackdrop = document.getElementById('cart-backdrop');
+            
+            if (cartPanel.classList.contains('open')) {
+                cartPanel.classList.remove('open');
+                cartBackdrop.classList.remove('open');
+            } else {
+                cartPanel.classList.add('open');
+                cartBackdrop.classList.add('open');
+            }
+        }
+
+        function closeCart() {
+            document.getElementById('cart-panel').classList.remove('open');
+            document.getElementById('cart-backdrop').classList.remove('open');
+        }
+
+        // Notification Function
+        function showNotification(message) {
+            // Create a simple notification (you could enhance this with a proper notification system)
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-4 right-4 z-50 retro-panel neon-panel p-3 text-xs';
+            notification.innerHTML = `
+                <div class="pixel-font">${message}</div>
+            `;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cart toggle
+            document.getElementById('cart-toggle').addEventListener('click', toggleCart);
+            document.getElementById('cart-close').addEventListener('click', closeCart);
+            document.getElementById('cart-backdrop').addEventListener('click', closeCart);
+            
+            // Clear cart button
+            document.getElementById('clear-cart').addEventListener('click', clearCart);
+            
+            // Checkout button in cart
+            document.getElementById('checkout-btn').addEventListener('click', function() {
+                closeCart();
+                setActiveSection('checkout');
+            });
+
+            // Initialize with home section
+            setActiveSection('home');
+            
+            // Keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                if (e.altKey) {
+                    switch(e.key) {
+                        case 'h': setActiveSection('home'); break;
+                        case 'l': setActiveSection('list'); break;
+                        case 's': setActiveSection('store'); break;
+                        case 'w': setActiveSection('wishlist'); break;
+                        case 'k': setActiveSection('checkout'); break;
+                        case 'a': setActiveSection('add-card'); break;
+                        case 'c': setActiveSection('contact'); break;
+                    }
+                }
+            });
+
+            // Initialize UI
+            updateCartUI();
+            updateWishlistUI();
+        });
+    </script>
+</body>
+</html>
